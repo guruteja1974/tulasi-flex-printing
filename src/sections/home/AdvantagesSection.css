@@ -1,0 +1,119 @@
+.home-advantages {
+  background: var(--color-dark-surface);
+}
+
+.home-advantages__intro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+.home-advantages__heading {
+  max-width: 68ch;
+}
+
+.home-advantages__disclaimer {
+  max-width: 36ch;
+  margin: 0 0 var(--space-1);
+  color: var(--color-muted-text);
+  font-size: 0.625rem;
+  line-height: 1.6;
+}
+
+.home-advantages__grid {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.home-advantage-card {
+  position: relative;
+  display: grid;
+  min-height: 190px;
+  align-content: start;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-md);
+  background: linear-gradient(145deg, var(--color-card-surface), var(--color-inset-surface));
+}
+
+.home-advantage-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-royal-gold);
+}
+
+.home-advantage-card__top span {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-2xl);
+}
+
+.home-advantage-card h3 {
+  color: var(--color-pure-white);
+  font-size: var(--font-size-lg);
+}
+
+.home-advantage-card p {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--color-muted-text);
+  font-size: var(--font-size-xs);
+  line-height: 1.65;
+}
+
+.home-advantage-card__rule {
+  width: 36px;
+  height: 1px;
+  margin-top: var(--space-1);
+  background: var(--color-bronze);
+}
+
+.home-advantage-card__arrow {
+  position: absolute;
+  right: var(--space-5);
+  bottom: var(--space-5);
+  color: var(--color-muted-text);
+}
+
+@media (max-width: 900px) {
+  .home-advantages__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .home-advantages__intro {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .home-advantages__grid {
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+
+  .home-advantage-card {
+    min-height: 170px;
+    padding: var(--space-4);
+  }
+
+  .home-advantage-card__arrow {
+    right: var(--space-4);
+    bottom: var(--space-4);
+  }
+}
+
+@media (max-width: 420px) {
+  .home-advantages__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-advantage-card {
+    min-height: auto;
+  }
+}

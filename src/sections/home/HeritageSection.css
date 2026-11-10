@@ -1,0 +1,183 @@
+.home-heritage {
+  background: var(--color-dark-surface);
+}
+
+.home-heritage__intro {
+  display: grid;
+  align-items: end;
+  gap: var(--space-8);
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+}
+
+.home-heritage__heading .section-heading__title {
+  max-width: 22ch;
+}
+
+.home-heritage__summary {
+  display: grid;
+  gap: var(--space-3);
+  padding-bottom: var(--space-1);
+}
+
+.home-heritage__summary p {
+  margin: 0;
+  color: var(--color-muted-text);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-loose);
+}
+
+.home-heritage__summary .home-heritage__pending {
+  color: var(--color-light-gold);
+  font-size: 0.6875rem;
+}
+
+.home-heritage__timeline {
+  display: grid;
+  margin-top: var(--space-10);
+  border: 1px solid var(--color-border-gold-muted);
+  border-radius: var(--radius-md);
+  background: var(--color-card-surface);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.home-heritage__milestone {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: var(--space-5);
+  border-right: 1px solid var(--color-border-muted);
+}
+
+.home-heritage__milestone:last-child {
+  border-right: 0;
+}
+
+.home-heritage__chapter {
+  color: var(--color-muted-text);
+  font-size: 0.5625rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.home-heritage__marker {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid var(--color-border-gold-muted);
+  border-radius: var(--radius-sm);
+  color: var(--color-royal-gold);
+}
+
+.home-heritage__milestone.is-confirmed .home-heritage__marker {
+  background: var(--color-deep-navy);
+}
+
+.home-heritage__year {
+  margin: 0;
+  color: var(--color-light-gold);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-2xl);
+  line-height: 1.2;
+}
+
+.home-heritage__milestone h3 {
+  color: var(--color-pure-white);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+}
+
+.home-heritage__detail {
+  margin: 0;
+  color: var(--color-muted-text);
+  font-size: 0.6875rem;
+  line-height: 1.55;
+}
+
+.home-heritage__note {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-md);
+  background: var(--color-inset-surface);
+  color: var(--color-royal-gold);
+}
+
+.home-heritage__note p {
+  flex: 1;
+  margin: 0;
+  color: var(--color-muted-text);
+  font-size: var(--font-size-xs);
+}
+
+.home-heritage__note strong {
+  color: var(--color-light-gold);
+  font-weight: var(--font-weight-semibold);
+}
+
+.home-heritage__note-tag {
+  color: var(--color-muted-text);
+  font-size: 0.625rem;
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .home-heritage__timeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-heritage__milestone:nth-child(3) {
+    border-right: 0;
+  }
+
+  .home-heritage__milestone:nth-child(-n + 3) {
+    border-bottom: 1px solid var(--color-border-muted);
+  }
+}
+
+@media (max-width: 767px) {
+  .home-heritage__intro {
+    gap: var(--space-5);
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-heritage__timeline {
+    margin-top: var(--space-6);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-heritage__milestone {
+    padding: var(--space-4);
+  }
+
+  .home-heritage__milestone:nth-child(3) {
+    border-right: 1px solid var(--color-border-muted);
+  }
+
+  .home-heritage__milestone:nth-child(even) {
+    border-right: 0;
+  }
+
+  .home-heritage__milestone:nth-child(4) {
+    border-bottom: 1px solid var(--color-border-muted);
+  }
+
+  .home-heritage__note {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: var(--space-4);
+  }
+
+  .home-heritage__note-tag {
+    width: 100%;
+    text-align: left;
+  }
+}

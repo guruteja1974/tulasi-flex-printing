@@ -1,0 +1,190 @@
+.site-header {
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  border-bottom: var(--border-width) solid var(--color-border-muted);
+  background: rgb(11 11 13 / 95%);
+  box-shadow: var(--shadow-md);
+  color: var(--color-text-inverse);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.site-header__inner {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.site-header__brand {
+  min-height: 48px;
+}
+
+.site-header__desktop {
+  display: flex;
+  align-items: center;
+  gap: clamp(var(--space-4), 2vw, var(--space-8));
+}
+
+.primary-navigation__list {
+  display: flex;
+  align-items: center;
+  gap: clamp(var(--space-3), 1.5vw, var(--space-6));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.primary-navigation__link {
+  position: relative;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: rgb(255 255 255 / 84%);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.primary-navigation__link::after {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  left: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--color-secondary);
+  content: "";
+  transition: transform var(--transition-base);
+}
+
+.primary-navigation__link:hover,
+.primary-navigation__link.is-active {
+  color: var(--color-secondary);
+}
+
+.primary-navigation__link:hover::after,
+.primary-navigation__link.is-active::after {
+  transform: scaleX(1);
+}
+
+.site-header__whatsapp {
+  min-height: 44px;
+  flex: 0 0 auto;
+  gap: var(--space-2);
+  padding-inline: var(--space-4);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+}
+
+.site-header__menu-toggle,
+.site-header__mobile-menu {
+  display: none;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 1001;
+  top: var(--space-3);
+  left: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  transform: translateY(calc(-100% - var(--space-3)));
+  border-radius: var(--radius-sm);
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (max-width: 1023px) {
+  .site-header__inner {
+    min-height: 76px;
+    flex-wrap: wrap;
+    gap: 0;
+    padding-block: var(--space-3);
+  }
+
+  .site-header__desktop {
+    display: none;
+  }
+
+  .site-header__menu-toggle {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    place-items: center;
+    border: var(--border-width) solid rgb(255 255 255 / 28%);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-text-inverse);
+    cursor: pointer;
+    transition:
+      border-color var(--transition-fast),
+      color var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .site-header__menu-toggle:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+  }
+
+  .site-header__mobile-menu {
+    display: grid;
+    width: 100%;
+    gap: var(--space-4);
+    padding-block: var(--space-4) var(--space-2);
+    border-top: var(--border-width) solid rgb(255 255 255 / 12%);
+  }
+
+  .primary-navigation--mobile .primary-navigation__list {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .primary-navigation--mobile .primary-navigation__link {
+    min-height: 48px;
+    font-size: var(--font-size-base);
+  }
+
+  .primary-navigation--mobile .primary-navigation__link::after {
+    right: auto;
+    bottom: 5px;
+    width: 40px;
+  }
+
+  .site-header__whatsapp--mobile {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .site-header__inner,
+  .site-header__desktop {
+    gap: var(--space-4);
+  }
+
+  .primary-navigation__list {
+    gap: var(--space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header *,
+  .site-header *::before,
+  .site-header *::after,
+  .skip-link {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+  }
+}

@@ -1,0 +1,120 @@
+.experience-page__timeline {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.experience-page__milestone {
+  position: relative;
+  min-width: 0;
+  padding: var(--space-5);
+  border: 1px solid var(--color-border-muted);
+  border-radius: var(--radius-md);
+  background: var(--color-card-surface);
+}
+
+.experience-page__milestone.is-confirmed {
+  border-color: var(--color-border-gold-muted);
+}
+
+.experience-page__marker {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin-bottom: var(--space-5);
+  border: 2px solid var(--color-royal-gold);
+  border-radius: 50%;
+  background: var(--color-card-surface);
+  box-shadow: 0 0 0 4px rgb(212 175 55 / 10%);
+}
+
+.experience-page__milestone h2 {
+  margin-block: var(--space-3);
+  color: var(--color-light-gold);
+  font-family: var(--font-family-technical);
+  font-size: var(--font-size-2xl);
+}
+
+.experience-page__milestone h3 {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+}
+
+.experience-page__milestone p {
+  font-size: var(--font-size-xs);
+}
+
+.experience-page__areas {
+  margin-bottom: var(--space-6);
+}
+
+.experience-page__people {
+  display: grid;
+  align-items: center;
+  gap: var(--space-10);
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.6fr);
+}
+
+.experience-page__people > div:first-child > svg {
+  margin-bottom: var(--space-5);
+  color: var(--color-royal-gold);
+}
+
+.experience-page__profile-placeholder {
+  display: grid;
+  min-height: 220px;
+  align-content: center;
+  justify-items: center;
+  gap: var(--space-4);
+  border: 1px dashed var(--color-border-gold-muted);
+  border-radius: var(--radius-md);
+  background: var(--color-card-surface);
+  color: var(--color-muted-text);
+  text-align: center;
+}
+
+.experience-page__profile-placeholder svg {
+  color: var(--color-royal-gold);
+}
+
+.experience-page__profile-placeholder span {
+  max-width: 24ch;
+  font-size: var(--font-size-sm);
+}
+
+.experience-page__visit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+.experience-page__visit h2 {
+  margin-block: var(--space-3);
+}
+
+.experience-page__visit p:last-child {
+  max-width: 60ch;
+}
+
+@media (max-width: 900px) {
+  .experience-page__timeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .experience-page__timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .experience-page__people {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .experience-page__visit {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

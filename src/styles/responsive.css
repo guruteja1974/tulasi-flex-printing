@@ -1,0 +1,40 @@
+@media (max-width: 767px) {
+  :root {
+    --container-gutter: var(--space-4);
+    --section-space-y: var(--space-12);
+    --section-space-y-compact: var(--space-8);
+    --font-size-base: 0.875rem;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 7vw, 2rem);
+  }
+
+  h2 {
+    font-size: clamp(1.375rem, 5.5vw, 1.5rem);
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --container-gutter: var(--space-5);
+    --section-space-y: var(--space-16);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  :root {
+    --container-gutter: var(--space-8);
+    --section-space-y: var(--space-20);
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --container-gutter: clamp(var(--space-8), 4vw, var(--space-12));
+  }
+}

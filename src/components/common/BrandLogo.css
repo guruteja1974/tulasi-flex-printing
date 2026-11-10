@@ -1,0 +1,57 @@
+.brand-logo {
+  display: inline-flex;
+  min-width: 0;
+  flex: 0 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-1);
+  color: var(--color-text-inverse);
+  line-height: 1;
+  text-decoration: none;
+}
+
+.brand-logo:hover {
+  color: var(--color-text-inverse);
+}
+
+.brand-logo__name {
+  color: var(--color-secondary);
+  font-family: var(--font-family-heading);
+  font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.12em;
+  line-height: var(--line-height-tight);
+  transition: color var(--transition-fast);
+}
+
+.brand-logo:hover .brand-logo__name {
+  color: var(--color-pure-white);
+}
+
+.brand-logo__descriptor {
+  color: var(--color-pure-white);
+  font-family: var(--font-family-base);
+  font-size: clamp(0.58rem, 0.9vw, var(--font-size-xs));
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.12em;
+  line-height: var(--line-height-base);
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .brand-logo__name {
+    font-size: var(--font-size-2xl);
+  }
+
+  .brand-logo__descriptor {
+    font-size: 0.55rem;
+    letter-spacing: 0.09em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-logo__name {
+    transition-duration: 0.01ms;
+  }
+}

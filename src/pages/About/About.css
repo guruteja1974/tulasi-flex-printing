@@ -1,0 +1,95 @@
+.about-page__story {
+  display: grid;
+  align-items: start;
+  gap: clamp(var(--space-8), 8vw, var(--space-20));
+  grid-template-columns: minmax(160px, 0.6fr) minmax(0, 1.4fr);
+}
+
+.about-page__story > div:last-child > p {
+  max-width: 72ch;
+  margin-top: var(--space-5);
+}
+
+.about-page__story-mark {
+  display: grid;
+  width: min(100%, 220px);
+  min-height: 220px;
+  align-content: center;
+  justify-items: center;
+  gap: var(--space-4);
+  border: 1px solid var(--color-border-gold-muted);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(16 27 53 / 65%), var(--color-card-surface));
+  color: var(--color-light-gold);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+}
+
+.about-page__address {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  color: var(--color-light-gold);
+  font-size: var(--font-size-sm);
+}
+
+.about-page__address svg {
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+}
+
+.about-page__timeline {
+  display: grid;
+  gap: var(--space-4);
+  margin-block: var(--space-8);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.about-page__milestone {
+  position: relative;
+  min-width: 0;
+  padding: var(--space-5);
+  border-top: 2px solid var(--color-border-muted);
+  background: var(--color-card-surface);
+}
+
+.about-page__milestone.is-confirmed {
+  border-top-color: var(--color-royal-gold);
+}
+
+.about-page__milestone > span {
+  color: var(--color-royal-gold);
+  font-family: var(--font-family-technical);
+}
+
+.about-page__milestone h3 {
+  margin-block: var(--space-3);
+  font-size: var(--font-size-base);
+}
+
+.about-page__milestone p {
+  font-size: var(--font-size-xs);
+}
+
+@media (max-width: 900px) {
+  .about-page__timeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .about-page__story {
+    grid-template-columns: 1fr;
+  }
+
+  .about-page__story-mark {
+    width: 140px;
+    min-height: 140px;
+    font-size: var(--font-size-base);
+  }
+
+  .about-page__timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
