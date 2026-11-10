@@ -7,7 +7,7 @@ import Home from '../pages/Home/Home.jsx';
 import Portfolio from '../pages/Portfolio/Portfolio.jsx';
 import Services from '../pages/Services/Services.jsx';
 
-export const router = createBrowserRouter([
+const routes = [
   {
     element: <AppLayout />,
     children: [
@@ -19,4 +19,8 @@ export const router = createBrowserRouter([
       { path: '/contact', element: <Contact /> },
     ],
   },
-]);
+];
+
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
+
+export const router = createBrowserRouter(routes, { basename });

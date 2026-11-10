@@ -28,6 +28,16 @@ business WhatsApp number, including the country code and digits only.
 - `npm run build` — create a production build in `dist/`
 - `npm run preview` — preview the production build locally
 
+## Public deployment
+
+GitHub Actions builds and publishes the static site to GitHub Pages whenever
+changes are pushed to `main`. The project-site base path is configured for
+`guruteja1974/tulasi-flex-printing`; React Router uses the same base path for
+direct route navigation. The Pages site is public even though the source
+repository is private. GitHub plan eligibility is required to publish Pages
+from a private repository. Do not add private customer data or credentials to
+the frontend bundle.
+
 ## Styling
 
 Tailwind CSS v4 is integrated through its official `@tailwindcss/vite` plugin.
