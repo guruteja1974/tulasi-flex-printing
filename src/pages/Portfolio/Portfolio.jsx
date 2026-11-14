@@ -73,20 +73,22 @@ export default function Portfolio() {
                     Illustrative category image. Client attribution and
                     project details are not supplied.
                   </p>
-                  <Link
-                    className="portfolio-page__detail-link"
-                    to={project.detailRoute}
-                  >
-                    Explore service details
-                    <ArrowUpRight aria-hidden="true" size={14} />
-                  </Link>
-                  <WhatsAppLink
-                    className="portfolio-page__card-enquiry"
-                    icon={ArrowUpRight}
-                    label="Discuss a similar brief"
-                    message={WHATSAPP_MESSAGES.portfolio}
-                    variant=""
-                  />
+                  <div className="portfolio-page__card-actions">
+                    <Link
+                      className="button button--outline portfolio-page__detail-link"
+                      to={project.detailRoute}
+                    >
+                      Explore service details
+                      <ArrowUpRight aria-hidden="true" size={14} />
+                    </Link>
+                    <WhatsAppLink
+                      className="button button--outline portfolio-page__card-enquiry"
+                      icon={ArrowUpRight}
+                      label="Discuss a similar brief"
+                      message={WHATSAPP_MESSAGES.portfolio}
+                      variant=""
+                    />
+                  </div>
                 </div>
               </article>
             ))}
