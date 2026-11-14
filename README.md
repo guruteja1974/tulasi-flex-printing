@@ -73,9 +73,24 @@ current facility photography, team portraits, verified portfolio work, and the
 approved regional map. Place approved static assets in the corresponding
 `public/images/` folder, or import app-managed images from `src/assets/images/`.
 
-All six routes are implemented. The Services page presents the six enquiry
-categories; Portfolio includes client-side category filtering; Experience and
-About identify historical and team information that still needs confirmation;
+The original six routes remain implemented. Service configurators are available
+at `/services/wedding-invitations`, `/services/commercial-printing`,
+`/services/flex-large-format`, `/services/custom-merchandising`,
+`/services/structural-fabrication`, and `/services/architectural-signage`.
+The `/cart` route displays configured products, allows quantity changes,
+specification edits, and removal, and persists the cart in browser localStorage.
+Cart and quote actions prepare an enquiry; they do not accept orders or payment.
+
+Prices and rates are not configured, and taxes, material availability,
+production timing, engineering, installation, and warranties remain subject to
+business confirmation. Width/height calculators show planning dimensions only.
+Artwork files are checked locally for supported file extensions and a
+configurable 100 MB selection limit; files remain in the browser and are not
+uploaded, transmitted, or technically verified. GitHub Pages static entries
+are generated for all nested service and cart routes during the build.
+
+Portfolio includes client-side category filtering; Experience and About
+identify historical and team information that still needs confirmation;
 Contact includes an accessible FAQ and a preview-only enquiry form. No form
 currently transmits or stores submitted information.
 

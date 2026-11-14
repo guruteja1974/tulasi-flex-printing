@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import PageHero from '../../components/common/PageHero.jsx';
 import WhatsAppLink from '../../components/common/WhatsAppLink.jsx';
 import { portfolioCategories, portfolioData } from '../../data/portfolioData.js';
@@ -72,6 +73,13 @@ export default function Portfolio() {
                     Illustrative category image. Client attribution and
                     project details are not supplied.
                   </p>
+                  <Link
+                    className="portfolio-page__detail-link"
+                    to={project.detailRoute}
+                  >
+                    Explore service details
+                    <ArrowUpRight aria-hidden="true" size={14} />
+                  </Link>
                   <WhatsAppLink
                     className="portfolio-page__card-enquiry"
                     icon={ArrowUpRight}

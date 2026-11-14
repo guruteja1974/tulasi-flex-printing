@@ -11,6 +11,10 @@ export const WHATSAPP_MESSAGES = {
     'Hello TULASI FLEX PRINTING & ARTS, I would like to request a quotation.',
   experience:
     'Hello TULASI FLEX PRINTING & ARTS, I would like to speak with your team about your services.',
+  weddingInvitations:
+    'Hello TULASI FLEX PRINTING & ARTS, I am planning a wedding invitation suite. Please confirm available formats, materials, pricing, and timing.',
+  weddingSample:
+    'Hello TULASI FLEX PRINTING & ARTS, I would like to enquire about a wedding invitation sample set. Please confirm availability, contents, and pricing.',
 };
 
 export function getWhatsAppUrl(message = defaultMessage) {

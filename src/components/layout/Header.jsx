@@ -1,14 +1,18 @@
 import { useEffect, useRef, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Menu, ShoppingBag, X } from 'lucide-react';
 import PrimaryNavigation from '../navigation/PrimaryNavigation.jsx';
 import BrandLogo from '../common/BrandLogo.jsx';
 import WhatsAppLink from '../common/WhatsAppLink.jsx';
+import { useCart } from '../../context/CartContext.jsx';
 import { WHATSAPP_MESSAGES } from '../../utils/whatsapp.js';
 import './Header.css';
 
 export default function Header() {
+  const { items } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef(null);
+  const cartLabel = `Production cart, ${items.length} configured ${items.length === 1 ? 'item' : 'items'}`;
 
   useEffect(() => {
     if (!isMenuOpen) {
@@ -40,11 +44,28 @@ export default function Header() {
 
         <div className="site-header__desktop">
           <PrimaryNavigation />
+          <Link
+            aria-label={cartLabel}
+            className="site-header__cart-link"
+            to="/cart"
+          >
+            <ShoppingBag aria-hidden="true" size={19} />
+            <span>{items.length}</span>
+          </Link>
           <WhatsAppLink
             className="site-header__whatsapp"
             message={WHATSAPP_MESSAGES.header}
           />
         </div>
+
+        <Link
+          aria-label={cartLabel}
+          className="site-header__cart-link site-header__cart-link--mobile"
+          to="/cart"
+        >
+          <ShoppingBag aria-hidden="true" size={19} />
+          <span>{items.length}</span>
+        </Link>
 
         <button
           aria-controls="mobile-primary-navigation"

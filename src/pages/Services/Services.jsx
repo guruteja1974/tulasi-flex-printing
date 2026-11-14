@@ -1,4 +1,5 @@
 import { ArrowDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import PageHero from '../../components/common/PageHero.jsx';
 import WhatsAppLink from '../../components/common/WhatsAppLink.jsx';
 import { servicesData } from '../../data/servicesData.js';
@@ -76,6 +77,12 @@ export default function Services() {
                       message={WHATSAPP_MESSAGES.services}
                       variant="outline"
                     />
+                    <Link
+                      className="button button--outline services-page__detail-link"
+                      to={service.detailRoute}
+                    >
+                      Explore service details
+                    </Link>
                   </div>
                 </article>
               );

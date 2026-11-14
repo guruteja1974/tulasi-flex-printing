@@ -33,8 +33,18 @@ const serviceDetails = [
   },
 ];
 
+const serviceRoutes = [
+  '/services/wedding-invitations',
+  '/services/commercial-printing',
+  '/services/flex-large-format',
+  '/services/architectural-signage',
+  '/services/custom-merchandising',
+  '/services/structural-fabrication',
+];
+
 export const servicesData = homeServices.map((service, index) => ({
   ...service,
   ...serviceDetails[index],
+  detailRoute: serviceRoutes[index],
   number: String(index + 1).padStart(2, '0'),
 }));
