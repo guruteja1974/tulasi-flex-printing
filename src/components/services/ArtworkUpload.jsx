@@ -63,13 +63,15 @@ export default function ArtworkUpload({
 
     const selection = { name: file.name, size: file.size };
     setSelectedFile(selection);
-    onSelectionChange?.(selection);
-    setMessage('Selected in this browser only. No upload or technical review occurred.');
+    onSelectionChange?.(selection, file);
+    setMessage(
+      'Selected in this browser only. No upload or technical review occurred. When supported, choose WhatsApp and the official TULASI chat in the share sheet; otherwise attach it manually in the company chat.',
+    );
   }
 
   function removeSelection() {
     setSelectedFile(null);
-    onSelectionChange?.(null);
+    onSelectionChange?.(null, null);
     setMessage('No file selected.');
     if (inputRef.current) {
       inputRef.current.value = '';

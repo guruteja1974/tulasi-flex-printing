@@ -92,8 +92,10 @@ export default function ProductionServicePage({ config }) {
       : {}),
   }));
   const [artwork, setArtwork] = useState(() => editItem?.artwork ?? null);
+  const [artworkFile, setArtworkFile] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [statusMessage, setStatusMessage] = useState('');
+  const [enquiryStatusMessage, setEnquiryStatusMessage] = useState('');
   const selectedProduct =
     config.products.find(({ id }) => id === values.product) ?? config.products[0];
   const quantity = getQuantity(config, values);
@@ -133,6 +135,11 @@ export default function ProductionServicePage({ config }) {
 
   function updateValue(fieldId, value) {
     setValues((current) => ({ ...current, [fieldId]: value }));
+  }
+
+  function handleArtworkSelection(selection, file) {
+    setArtwork(selection);
+    setArtworkFile(file);
   }
 
   function saveConfiguration() {
@@ -326,7 +333,7 @@ export default function ProductionServicePage({ config }) {
               <ArtworkUpload
                 id={`${config.id}-artwork`}
                 label={config.id === 'structural-fabrication' ? 'Drawings & site references' : 'Artwork & print-ready files'}
-                onSelectionChange={setArtwork}
+                onSelectionChange={handleArtworkSelection}
               />
             </div>
 
@@ -361,16 +368,20 @@ export default function ProductionServicePage({ config }) {
                 </a>
               )}
               <WhatsAppLink
+                attachment={artworkFile}
                 className="service-configurator__whatsapp"
                 label={config.cartEligible ? 'Request a quotation' : 'WhatsApp project enquiry'}
                 message={estimateMessage}
+                onAttachmentStatus={setStatusMessage}
                 variant={config.cartEligible ? 'outline' : 'secondary'}
               />
               {config.secondaryEnquiry && (
                 <WhatsAppLink
+                  attachment={artworkFile}
                   className="service-configurator__secondary"
                   label={config.secondaryEnquiry.label}
                   message={`${estimateMessage}\n\n${config.secondaryEnquiry.message}`}
+                  onAttachmentStatus={setStatusMessage}
                   variant="outline"
                 />
               )}
@@ -483,10 +494,19 @@ export default function ProductionServicePage({ config }) {
               </Link>
             )}
             <WhatsAppLink
+              attachment={artworkFile}
               label={config.cartEligible ? 'Request a quotation' : 'Request a project quotation'}
               message={estimateMessage}
+              onAttachmentStatus={setEnquiryStatusMessage}
             />
           </div>
+          <p
+            aria-live="polite"
+            className="service-configurator__status"
+            role="status"
+          >
+            {enquiryStatusMessage}
+          </p>
         </section>
       </div>
     </div>
