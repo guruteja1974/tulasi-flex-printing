@@ -1,8 +1,10 @@
-import { ArrowUpRight, MapPin, MessageCircle, Navigation } from 'lucide-react';
+import { ArrowUpRight, MapPin, Navigation } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FaqList from '../../components/common/FaqList.jsx';
 import PageHero from '../../components/common/PageHero.jsx';
+import WhatsAppLink from '../../components/common/WhatsAppLink.jsx';
 import QuoteSection from '../../sections/home/QuoteSection.jsx';
+import { WHATSAPP_MESSAGES } from '../../utils/whatsapp.js';
 import '../contentPages.css';
 import './Contact.css';
 
@@ -25,7 +27,7 @@ const questions = [
   {
     question: 'Can I submit the enquiry form online?',
     answer:
-      'The form on this website is currently a preview only. It does not send or store information. Please do not enter sensitive personal or project information until a verified contact channel or working submission service is provided.',
+      'The form on this website is currently a preview only and does not send or store information. For a quotation, contact us directly on WhatsApp.',
   },
   {
     question: 'Are plant visits or urgent timelines available?',
@@ -38,7 +40,7 @@ export default function Contact() {
   return (
     <div className="content-page contact-page">
       <PageHero
-        description="Use the supplied Jaggayyapeta address for location reference. Business phone, email, desk hours, and enquiry submission details are awaiting confirmation."
+        description="Use the supplied Jaggayyapeta address for location reference. Contact us directly on WhatsApp for project enquiries and quotations."
         eyebrow="Contact · Jaggayyapeta"
         title="Let’s discuss what you’re planning"
       >
@@ -60,12 +62,11 @@ export default function Contact() {
               Open in Google Maps
               <ArrowUpRight aria-hidden="true" size={15} />
             </a>
-            <div className="contact-page__pending">
-              <MessageCircle aria-hidden="true" size={18} />
-              <p>
-                Verified phone, WhatsApp, email, and business hours are pending.
-              </p>
-            </div>
+            <WhatsAppLink
+              className="contact-page__whatsapp"
+              label="Chat on WhatsApp"
+              message={WHATSAPP_MESSAGES.contact}
+            />
           </div>
           <aside className="contact-page__travel">
             <Navigation aria-hidden="true" size={22} />

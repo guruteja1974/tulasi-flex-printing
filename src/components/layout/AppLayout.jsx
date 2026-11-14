@@ -1,6 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import Header from './Header.jsx';
 import SiteFooter from './SiteFooter.jsx';
+import WhatsAppLink from '../common/WhatsAppLink.jsx';
+import { WHATSAPP_MESSAGES } from '../../utils/whatsapp.js';
+import './FloatingWhatsAppLink.css';
 
 export default function AppLayout() {
   return (
@@ -13,6 +16,12 @@ export default function AppLayout() {
         <Outlet />
       </main>
       <SiteFooter />
+      <WhatsAppLink
+        className="floating-whatsapp"
+        label="WhatsApp enquiry"
+        message={WHATSAPP_MESSAGES.header}
+        variant=""
+      />
     </>
   );
 }

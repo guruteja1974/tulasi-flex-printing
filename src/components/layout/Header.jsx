@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import PrimaryNavigation from '../navigation/PrimaryNavigation.jsx';
 import BrandLogo from '../common/BrandLogo.jsx';
 import WhatsAppLink from '../common/WhatsAppLink.jsx';
+import { WHATSAPP_MESSAGES } from '../../utils/whatsapp.js';
 import './Header.css';
 
 export default function Header() {
@@ -39,7 +40,10 @@ export default function Header() {
 
         <div className="site-header__desktop">
           <PrimaryNavigation />
-          <WhatsAppLink className="site-header__whatsapp" />
+          <WhatsAppLink
+            className="site-header__whatsapp"
+            message={WHATSAPP_MESSAGES.header}
+          />
         </div>
 
         <button
@@ -69,6 +73,7 @@ export default function Header() {
             />
             <WhatsAppLink
               className="site-header__whatsapp site-header__whatsapp--mobile"
+              message={WHATSAPP_MESSAGES.header}
             />
           </div>
         )}

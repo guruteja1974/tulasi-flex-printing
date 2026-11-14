@@ -1,8 +1,9 @@
-import { ArrowRight, Building2, UsersRound } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Building2, UsersRound } from 'lucide-react';
 import PageHero from '../../components/common/PageHero.jsx';
 import SectionHeading from '../../components/common/SectionHeading.jsx';
+import WhatsAppLink from '../../components/common/WhatsAppLink.jsx';
 import { heritageMilestones } from '../../data/homeData.js';
+import { WHATSAPP_MESSAGES } from '../../utils/whatsapp.js';
 import '../contentPages.css';
 import './Experience.css';
 
@@ -23,9 +24,10 @@ export default function Experience() {
         eyebrow="Experience · Heritage & capability"
         title="A history of print, with more to confirm"
       >
-        <Link className="button button--secondary" to="/contact">
-          Plan an enquiry <ArrowRight aria-hidden="true" size={16} />
-        </Link>
+        <WhatsAppLink
+          label="Speak with our team"
+          message={WHATSAPP_MESSAGES.experience}
+        />
       </PageHero>
 
       <section className="content-section">
@@ -119,9 +121,10 @@ export default function Experience() {
               Please confirm a visit before travelling.
             </p>
           </div>
-          <Link className="button button--secondary" to="/contact">
-            Contact the business <ArrowRight aria-hidden="true" size={16} />
-          </Link>
+          <WhatsAppLink
+            label="Speak with our team"
+            message={WHATSAPP_MESSAGES.experience}
+          />
         </div>
       </section>
     </div>

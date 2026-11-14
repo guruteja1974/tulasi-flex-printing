@@ -70,7 +70,8 @@ export default function QuoteSection() {
             <div className="home-quote__contact-pending">
               <MessageSquareText aria-hidden="true" size={17} />
               <p>
-                Verified business phone, WhatsApp, and email details are pending.
+                This form is a preview only. Contact us on WhatsApp to request a
+                quotation.
               </p>
             </div>
 

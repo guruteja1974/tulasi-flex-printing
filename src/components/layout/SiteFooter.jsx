@@ -1,6 +1,8 @@
 import { ArrowUpRight, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import BrandLogo from '../common/BrandLogo.jsx';
+import WhatsAppLink from '../common/WhatsAppLink.jsx';
+import { WHATSAPP_MESSAGES } from '../../utils/whatsapp.js';
 import './SiteFooter.css';
 
 const navigationLinks = [
@@ -55,6 +57,12 @@ export default function SiteFooter() {
             View location
             <ArrowUpRight aria-hidden="true" size={14} />
           </a>
+          <WhatsAppLink
+            className="site-footer__whatsapp"
+            label="WhatsApp enquiry"
+            message={WHATSAPP_MESSAGES.header}
+            variant=""
+          />
         </div>
       </div>
 

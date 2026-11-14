@@ -2,6 +2,7 @@ import { ArrowDown, ArrowRight, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import WhatsAppLink from '../../components/common/WhatsAppLink.jsx';
 import { homeMetrics, homeServices } from '../../data/homeData.js';
+import { WHATSAPP_MESSAGES } from '../../utils/whatsapp.js';
 import './HeroSection.css';
 
 const heroImages = [
@@ -38,11 +39,11 @@ export default function HeroSection() {
               Explore Our Services
               <ArrowRight aria-hidden="true" size={17} />
             </Link>
-            <WhatsAppLink />
+            <WhatsAppLink message={WHATSAPP_MESSAGES.header} />
           </div>
           <p className="home-hero__contact-note">
-            WhatsApp enquiry activates after the verified business number is
-            configured.
+            Message us on WhatsApp to discuss your printing and advertising
+            needs.
           </p>
           <a className="home-hero__scroll" href="#home-heritage">
             Explore the story

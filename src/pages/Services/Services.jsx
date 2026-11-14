@@ -1,7 +1,8 @@
-import { ArrowDown, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowDown } from 'lucide-react';
 import PageHero from '../../components/common/PageHero.jsx';
+import WhatsAppLink from '../../components/common/WhatsAppLink.jsx';
 import { servicesData } from '../../data/servicesData.js';
+import { WHATSAPP_MESSAGES } from '../../utils/whatsapp.js';
 import '../contentPages.css';
 import './Services.css';
 
@@ -13,9 +14,10 @@ export default function Services() {
         eyebrow="Services · Print, display & fabrication"
         title="A considered approach to every format"
       >
-        <Link className="button button--secondary" to="/contact">
-          Discuss your project <ArrowRight aria-hidden="true" size={16} />
-        </Link>
+        <WhatsAppLink
+          label="Discuss your project"
+          message={WHATSAPP_MESSAGES.services}
+        />
         <a className="button button--outline" href="#service-catalog">
           Browse services <ArrowDown aria-hidden="true" size={16} />
         </a>
@@ -69,10 +71,11 @@ export default function Services() {
                         <li key={option}>{option}</li>
                       ))}
                     </ul>
-                    <Link className="button button--outline" to="/contact">
-                      Enquire about this category
-                      <ArrowRight aria-hidden="true" size={15} />
-                    </Link>
+                    <WhatsAppLink
+                      label="Enquire about this category"
+                      message={WHATSAPP_MESSAGES.services}
+                      variant="outline"
+                    />
                   </div>
                 </article>
               );
@@ -91,9 +94,10 @@ export default function Services() {
               timing. We can then confirm what is suitable and available.
             </p>
           </div>
-          <Link className="button button--secondary" to="/contact">
-            Request an enquiry <ArrowRight aria-hidden="true" size={16} />
-          </Link>
+          <WhatsAppLink
+            label="Request a Quote"
+            message={WHATSAPP_MESSAGES.services}
+          />
         </div>
       </section>
     </div>

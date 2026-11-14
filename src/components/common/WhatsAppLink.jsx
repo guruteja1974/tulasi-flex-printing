@@ -1,17 +1,23 @@
 import { MessageCircle } from 'lucide-react';
-import { WHATSAPP_PHONE_NUMBER } from '../../constants/appConstants.js';
-
-const defaultMessage =
-  'Hello Tulasi Flex Printing & Arts, I would like to enquire about printing services.';
+import { getWhatsAppUrl, WHATSAPP_MESSAGES } from '../../utils/whatsapp.js';
 
 export default function WhatsAppLink({
   className = '',
   label = 'WhatsApp Enquiry',
-  message = defaultMessage,
+  message = WHATSAPP_MESSAGES.header,
+  variant = 'secondary',
+  icon: Icon = MessageCircle,
 }) {
-  const classes = `button button--secondary whatsapp-link ${className}`.trim();
+  const url = getWhatsAppUrl(message);
+  const classes = [
+    variant && `button button--${variant}`,
+    'whatsapp-link',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
-  if (!WHATSAPP_PHONE_NUMBER) {
+  if (!url) {
     return (
       <button
         aria-disabled="true"
@@ -21,7 +27,7 @@ export default function WhatsAppLink({
         title="Set the verified business WhatsApp number in the local environment to enable this link."
         type="button"
       >
-        <MessageCircle aria-hidden="true" size={18} />
+        <Icon aria-hidden="true" size={18} />
         <span>{label}</span>
       </button>
     );
@@ -30,11 +36,11 @@ export default function WhatsAppLink({
   return (
     <a
       className={classes}
-      href={`https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodeURIComponent(message)}`}
-      rel="noreferrer"
+      href={url}
+      rel="noopener noreferrer"
       target="_blank"
     >
-      <MessageCircle aria-hidden="true" size={18} />
+      <Icon aria-hidden="true" size={18} />
       <span>{label}</span>
     </a>
   );

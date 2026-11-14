@@ -107,14 +107,19 @@
   font-size: var(--font-size-xs);
 }
 
-.portfolio-page__card-copy a {
+.portfolio-page__card-copy .portfolio-page__card-enquiry {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
   margin-top: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--color-light-gold);
+  cursor: pointer;
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
+  text-align: left;
   text-decoration: none;
 }
 

@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
 import PageHero from '../../components/common/PageHero.jsx';
+import WhatsAppLink from '../../components/common/WhatsAppLink.jsx';
 import { portfolioCategories, portfolioData } from '../../data/portfolioData.js';
+import { WHATSAPP_MESSAGES } from '../../utils/whatsapp.js';
 import '../contentPages.css';
 import './Portfolio.css';
 
@@ -23,9 +24,10 @@ export default function Portfolio() {
         eyebrow="Portfolio · Visual references"
         title="Print and display, seen through the design lens"
       >
-        <Link className="button button--secondary" to="/contact">
-          Discuss a project <ArrowRight aria-hidden="true" size={16} />
-        </Link>
+        <WhatsAppLink
+          label="Request a consultation"
+          message={WHATSAPP_MESSAGES.portfolio}
+        />
       </PageHero>
 
       <section className="content-section">
@@ -70,10 +72,13 @@ export default function Portfolio() {
                     Illustrative category image. Client attribution and
                     project details are not supplied.
                   </p>
-                  <Link to="/contact">
-                    Discuss a similar brief
-                    <ArrowUpRight aria-hidden="true" size={15} />
-                  </Link>
+                  <WhatsAppLink
+                    className="portfolio-page__card-enquiry"
+                    icon={ArrowUpRight}
+                    label="Discuss a similar brief"
+                    message={WHATSAPP_MESSAGES.portfolio}
+                    variant=""
+                  />
                 </div>
               </article>
             ))}
@@ -87,9 +92,10 @@ export default function Portfolio() {
             <p className="page-hero__eyebrow">Have a brief in mind?</p>
             <h2>Let’s talk about your next print or display project.</h2>
           </div>
-          <Link className="button button--secondary" to="/contact">
-            Start an enquiry <ArrowRight aria-hidden="true" size={16} />
-          </Link>
+          <WhatsAppLink
+            label="Start an enquiry"
+            message={WHATSAPP_MESSAGES.portfolio}
+          />
         </div>
       </section>
     </div>

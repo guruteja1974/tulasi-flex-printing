@@ -19,8 +19,9 @@ npm run dev
 
 Vite prints the local development URL after the server starts.
 
-Copy `.env.example` to `.env` and replace `VITE_WHATSAPP_PHONE_NUMBER` with the
-business WhatsApp number, including the country code and digits only.
+The root `.env` file is configured with the business WhatsApp number in
+country-code format. It is ignored by Git; set `VITE_WHATSAPP_PHONE_NUMBER`
+there when changing the contact number.
 
 ## Available scripts
 
@@ -81,5 +82,5 @@ currently transmits or stores submitted information.
 Replace designer-reference imagery with approved company photography and
 confirm historical milestones, team details, facility capabilities, project
 claims, business contact details, and regional travel information before
-publication. Configure the WhatsApp number only after the business provides a
-verified contact. The current WhatsApp CTA stays disabled without that value.
+publication. The WhatsApp contact uses the configured business number; other
+business contact details remain subject to confirmation.

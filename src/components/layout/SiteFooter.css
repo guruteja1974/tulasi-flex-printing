@@ -106,6 +106,15 @@
   color: var(--color-light-gold);
 }
 
+.site-footer__address > .site-footer__whatsapp {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-light-gold);
+  cursor: pointer;
+  font: inherit;
+}
+
 .site-footer__bottom {
   border-top: 1px solid var(--color-border-muted);
 }
