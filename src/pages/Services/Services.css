@@ -148,6 +148,10 @@
   font-size: var(--font-size-xs);
 }
 
+.services-page__detail-link {
+  margin-top: var(--space-3);
+}
+
 .services-page__closing {
   display: flex;
   align-items: center;
