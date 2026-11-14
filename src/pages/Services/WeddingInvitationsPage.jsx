@@ -672,7 +672,10 @@ export default function WeddingInvitationsPage() {
             <ArrowUpRight aria-hidden="true" size={16} />
           </button>
           {statusMessage && (
-            <Link className="wedding-sticky-bar__view-cart" to="/cart">
+            <Link
+              className="button button--outline wedding-sticky-bar__view-cart"
+              to="/cart"
+            >
               Review cart
             </Link>
           )}
