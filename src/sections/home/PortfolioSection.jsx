@@ -2,6 +2,7 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionHeading from '../../components/common/SectionHeading.jsx';
 import { portfolioReferences } from '../../data/homeData.js';
+import HomeConceptArtwork from './HomeConceptArtwork.jsx';
 import './PortfolioSection.css';
 
 export default function PortfolioSection() {
@@ -21,8 +22,8 @@ export default function PortfolioSection() {
           />
           <div className="home-portfolio__aside">
             <p>
-              These supplied designer-reference images illustrate print and
-              display categories. They are not verified Tulasi client projects.
+              Illustrative design concepts only. They are not verified Tulasi
+              client projects; approved project photography is pending.
             </p>
             <Link className="home-portfolio__all-link" to="/portfolio">
               Visit portfolio
@@ -35,12 +36,15 @@ export default function PortfolioSection() {
           {portfolioReferences.map((project, index) => (
             <article className="home-project-card" key={project.title}>
               <div className="home-project-card__image">
-                <img alt={project.imageAlt} loading="lazy" src={project.image} />
+                <HomeConceptArtwork
+                  label={project.imageAlt}
+                  type={project.illustration}
+                />
                 <span className="home-project-card__category">
                   {project.category}
                 </span>
                 <span className="home-project-card__reference">
-                  Design reference
+                  Concept only
                 </span>
               </div>
               <div className="home-project-card__body">
@@ -48,7 +52,7 @@ export default function PortfolioSection() {
                   Visual concept · {String(index + 1).padStart(2, '0')}
                 </span>
                 <h3>{project.title}</h3>
-                <p>Project details and client attribution pending approval.</p>
+                <p>{project.description} Not a verified client project.</p>
                 <Link
                   aria-label={`View portfolio page for ${project.title}`}
                   className="home-project-card__link"

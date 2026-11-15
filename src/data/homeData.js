@@ -52,6 +52,9 @@ export const heritageMilestones = [
 export const homeServices = [
   {
     title: 'Wedding & Invitation Printing',
+    route: '/services/wedding-invitations',
+    illustration: 'invite',
+    speech: 'I turn your big day into a beautiful card.',
     description:
       'Explore invitation, event stationery, and finishing options for your occasion.',
     icon: Sparkles,
@@ -60,6 +63,9 @@ export const homeServices = [
   },
   {
     title: 'Commercial Printing',
+    route: '/services/commercial-printing',
+    illustration: 'docs',
+    speech: 'Letterheads, cards, and folders for your business.',
     description:
       'Discuss business stationery, documents, and printed collateral for your needs.',
     icon: FileImage,
@@ -68,6 +74,9 @@ export const homeServices = [
   },
   {
     title: 'Flex & Large-Format Printing',
+    route: '/services/flex-large-format',
+    illustration: 'flex',
+    speech: 'Plan banners and large-format display graphics.',
     description:
       'Plan banners, display graphics, and large-format print requirements.',
     icon: Printer,
@@ -76,6 +85,9 @@ export const homeServices = [
   },
   {
     title: 'Architectural Signage',
+    route: '/services/architectural-signage',
+    illustration: 'sign',
+    speech: 'Discuss signs and display lettering for your space.',
     description:
       'Share your requirements for signs, display lettering, and visual identification.',
     icon: Store,
@@ -84,6 +96,9 @@ export const homeServices = [
   },
   {
     title: 'Custom Merchandise',
+    route: '/services/custom-merchandising',
+    illustration: 'merch',
+    speech: 'Explore custom apparel and presentation ideas.',
     description:
       'Explore branded apparel, merchandise, and custom presentation ideas.',
     icon: Shirt,
@@ -92,6 +107,9 @@ export const homeServices = [
   },
   {
     title: 'Fabrication & Hoarding',
+    route: '/services/structural-fabrication',
+    illustration: 'hoard',
+    speech: 'Describe a display or hoarding project for review.',
     description:
       'Describe structural display or hoarding requirements for a project review.',
     icon: Wrench,
@@ -149,80 +167,98 @@ export const portfolioReferences = [
   {
     title: 'Wedding stationery concept',
     category: 'Invitation print',
+    illustration: 'invitation',
+    description: 'Foil-finish invitation suite concept.',
+    imageAlt: 'Illustration of a wedding invitation concept, not a verified client project.',
     image: portfolioInvitationReference,
-    imageAlt:
-      'Illustrative designer reference image of luxury wedding stationery; not a verified client project.',
   },
   {
     title: 'Architectural signage concept',
     category: 'Signage',
+    illustration: 'signage',
+    description: 'Illuminated lettering on a building facade concept.',
+    imageAlt: 'Illustration of a signage concept, not a verified client project.',
     image: portfolioSignageReference,
-    imageAlt:
-      'Illustrative designer reference image of illuminated architectural lettering; not a verified client project.',
   },
   {
     title: 'Large-format display concept',
     category: 'Flex & display',
+    illustration: 'display',
+    description: 'Roadside hoarding on a steel frame concept.',
+    imageAlt: 'Illustration of a large-format display concept, not a verified client project.',
     image: portfolioFlexReference,
-    imageAlt:
-      'Illustrative designer reference image of a highway display installation; not a verified client project.',
   },
   {
     title: 'Storefront identity concept',
     category: 'Retail branding',
+    illustration: 'storefront',
+    description: 'Shop sign and window graphics concept.',
+    imageAlt: 'Illustration of a storefront identity concept, not a verified client project.',
     image: portfolioStorefrontReference,
-    imageAlt:
-      'Illustrative designer reference image of a retail storefront; not a verified client project.',
   },
   {
     title: 'Business stationery concept',
     category: 'Commercial print',
+    illustration: 'stationery',
+    description: 'Letterhead, cards, and folders concept.',
+    imageAlt: 'Illustration of business stationery, not a verified client project.',
     image: portfolioStationeryReference,
-    imageAlt:
-      'Illustrative designer reference image of business stationery; not a verified client project.',
   },
   {
     title: 'Branded merchandise concept',
     category: 'Merchandise',
+    illustration: 'merchandise',
+    description: 'Apparel and recognition plaque concept.',
+    imageAlt: 'Illustration of branded merchandise, not a verified client project.',
     image: portfolioMerchandiseReference,
-    imageAlt:
-      'Illustrative designer reference image of custom apparel and a presentation item; not a verified client project.',
   },
 ];
 
 export const workingProcess = [
   {
     number: '01',
+    illustration: 'step-brief',
+    speech: 'Tell us your idea.',
     title: 'Share your brief',
     description: 'Tell us what you need, where it will be used, and by when.',
     icon: UsersRound,
   },
   {
     number: '02',
+    illustration: 'step-specs',
+    speech: 'Let’s measure it right.',
     title: 'Confirm specifications',
     description: 'Review size, quantity, artwork, material, and finish details.',
     icon: Ruler,
   },
   {
     number: '03',
+    illustration: 'step-quote',
+    speech: 'Review the estimate.',
     title: 'Review the estimate',
     description: 'Confirm the proposed scope, pricing, and timing before approval.',
     icon: ClipboardCheck,
   },
   {
     number: '04',
+    illustration: 'step-art',
+    speech: 'Is the artwork ready?',
     title: 'Approve artwork',
     description: 'Sign off on the final proof and production details.',
     icon: Image,
   },
   {
     number: '05',
+    illustration: 'step-plan',
+    speech: 'Plan the work together.',
     title: 'Production planning',
     description: 'Agree on the production plan and any installation requirements.',
     icon: Workflow,
   },
   {
     number: '06',
+    illustration: 'step-hand',
+    speech: 'Coordinate the handover.',
     title: 'Coordinate handover',
     description: 'Confirm collection, delivery, or site coordination for the order.',
     icon: PackageCheck,

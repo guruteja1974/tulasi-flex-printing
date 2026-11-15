@@ -226,6 +226,43 @@
   color: var(--color-light-gold);
 }
 
+.home-quote__open-whatsapp {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.home-quote__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  margin-top: var(--space-8);
+  padding: clamp(var(--space-5), 3vw, var(--space-8));
+  border: 1px solid var(--color-border-gold-muted);
+  border-radius: var(--radius-md);
+  background: linear-gradient(100deg, var(--color-card-surface), #1d1a10);
+}
+
+.home-quote__cta h3 {
+  margin-top: var(--space-2);
+  color: var(--color-pure-white);
+  font-size: var(--font-size-lg);
+}
+
+.home-quote__cta p:last-child {
+  margin-top: var(--space-2);
+  color: var(--color-muted-text);
+  font-size: var(--font-size-xs);
+}
+
+.home-quote__cta .whatsapp-link {
+  flex: 0 0 auto;
+}
+
 @media (max-width: 800px) {
   .home-quote__layout {
     grid-template-columns: minmax(0, 1fr);
@@ -233,6 +270,15 @@
 
   .home-quote__location {
     order: 1;
+  }
+
+  .home-quote__cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .home-quote__cta .whatsapp-link {
+    width: 100%;
   }
 }
 

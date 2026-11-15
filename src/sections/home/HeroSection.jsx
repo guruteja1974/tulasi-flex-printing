@@ -1,15 +1,10 @@
 import { ArrowDown, ArrowRight, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import WhatsAppLink from '../../components/common/WhatsAppLink.jsx';
-import { homeMetrics, homeServices } from '../../data/homeData.js';
+import { homeMetrics } from '../../data/homeData.js';
 import { WHATSAPP_MESSAGES } from '../../utils/whatsapp.js';
+import { HomeIllustration } from './HomeArtwork.jsx';
 import './HeroSection.css';
-
-const heroImages = [
-  homeServices[2],
-  homeServices[0],
-  homeServices[3],
-];
 
 export default function HeroSection() {
   return (
@@ -18,12 +13,11 @@ export default function HeroSection() {
         <div className="home-hero__content">
           <p className="home-hero__eyebrow">
             <span aria-hidden="true" className="home-hero__eyebrow-dot" />
-            Established 1994 <span aria-hidden="true">·</span> Printing &amp;
-            Fabrication
+            Established 1994 <span aria-hidden="true">·</span> Printing &amp; Fabrication
           </p>
           <h1 className="home-hero__title" id="home-hero-title">
-            30 Years of
-            <span> Creativity. Quality. Trust.</span>
+            Print. Display.
+            <span>Ideas made to brief.</span>
           </h1>
           <p className="home-hero__description">
             From invitation and commercial print to large-format graphics,
@@ -45,33 +39,75 @@ export default function HeroSection() {
             Message us on WhatsApp to discuss your printing and advertising
             needs.
           </p>
-          <a className="home-hero__scroll" href="#home-heritage">
-            Explore the story
+          <a className="home-hero__scroll" href="#home-about">
+            About the business
             <ArrowDown aria-hidden="true" size={15} />
           </a>
         </div>
 
         <div
-          aria-label="Illustrative printing and fabrication imagery supplied with the design references, not verified company project photographs"
+          aria-label="Illustrative printing, invitation, and signage artwork; not company project photographs"
           className="home-hero__visual"
           role="group"
         >
           <p className="home-hero__visual-note">
-            Designer reference imagery · company photography pending
+            Illustrative artwork · approved business photography pending
           </p>
-          {heroImages.map((item, index) => (
-            <figure
-              className={`home-hero__image home-hero__image--${index + 1}`}
-              key={item.title}
+          <figure className="home-hero__image home-hero__image--1">
+            <svg
+              aria-label="Illustration of a printing machine producing a banner"
+              className="home-hero__machine-art"
+              role="img"
+              viewBox="0 0 400 520"
             >
-              <img
-                alt={item.imageAlt}
-                fetchPriority={index === 0 ? 'high' : undefined}
-                src={item.image}
-              />
-              <figcaption>{item.title}</figcaption>
-            </figure>
-          ))}
+              <rect fill="#141416" height="520" width="400" />
+              <circle cx="200" cy="250" fill="#d4af37" opacity=".09" r="170" />
+              <use href="#home-flex" height="293" width="440" x="-20" y="130" />
+              <g transform="translate(318 78) rotate(10)">
+                <circle fill="#d4af37" r="42" stroke="#0a0a0b" strokeWidth="3" />
+                <text
+                  fill="#0a0a0b"
+                  fontFamily="Georgia, serif"
+                  fontSize="18"
+                  fontWeight="700"
+                  textAnchor="middle"
+                  y="6"
+                >
+                  EST.
+                </text>
+                <text
+                  fill="#0a0a0b"
+                  fontFamily="Arial, sans-serif"
+                  fontSize="13"
+                  fontWeight="700"
+                  textAnchor="middle"
+                  y="25"
+                >
+                  1994
+                </text>
+              </g>
+            </svg>
+            <span className="home-hero__speech">
+              Tulasi Flex Printing &amp; Arts was established in 1994.
+            </span>
+            <figcaption>Flex &amp; Large-Format Printing</figcaption>
+          </figure>
+          <figure className="home-hero__image home-hero__image--2">
+            <HomeIllustration
+              className="home-hero__small-art"
+              label="Illustration of a wedding invitation card"
+              name="invite"
+            />
+            <figcaption>Wedding &amp; Invitation Printing</figcaption>
+          </figure>
+          <figure className="home-hero__image home-hero__image--3">
+            <HomeIllustration
+              className="home-hero__small-art"
+              label="Illustration of a shopfront with signage"
+              name="sign"
+            />
+            <figcaption>Architectural Signage</figcaption>
+          </figure>
           <span aria-hidden="true" className="home-hero__visual-orbit" />
         </div>
       </div>

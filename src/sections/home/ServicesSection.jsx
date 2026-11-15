@@ -2,6 +2,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionHeading from '../../components/common/SectionHeading.jsx';
 import { homeServices } from '../../data/homeData.js';
+import { HomeIllustration } from './HomeArtwork.jsx';
 import './ServicesSection.css';
 
 export default function ServicesSection() {
@@ -16,40 +17,37 @@ export default function ServicesSection() {
           align="center"
           className="home-services__heading"
           id="home-services-title"
-          description="Explore the print, display, and fabrication categories in the approved business brief."
+          description="Six print, display, and fabrication categories. Choose one to start an enquiry."
           eyebrow="Production capabilities"
           title="Specialized Printing & Fabrication"
         />
         <p className="home-services__image-note">
-          Reference imagery supplied in the design code · not verified photographs
-          of Tulasi facilities or client work
+          Illustrative category artwork · actual company photography is pending
         </p>
 
         <div className="home-services__grid">
-          {homeServices.map(({ title, description, icon: Icon, image, imageAlt }) => (
-            <article className="home-service-card" key={title}>
+          {homeServices.map(({ title, description, route, illustration, speech }) => (
+            <Link className="home-service-card" key={title} to={route}>
               <div className="home-service-card__image">
-                <img alt={imageAlt} loading="lazy" src={image} />
+                <HomeIllustration
+                  className="home-service-card__art"
+                  label={`Illustration for ${title.toLowerCase()}`}
+                  name={illustration}
+                />
                 <span className="home-service-card__reference">
-                  Reference visual
+                  Illustration
                 </span>
               </div>
               <div className="home-service-card__body">
-                <div className="home-service-card__title-row">
-                  <Icon aria-hidden="true" size={16} />
-                  <h3>{title}</h3>
-                </div>
+                <span className="home-service-card__speech">{speech}</span>
+                <h3>{title}</h3>
                 <p>{description}</p>
-                <Link
-                  aria-label={`Learn about ${title}`}
-                  className="home-service-card__link"
-                  to="/services"
-                >
+                <span className="home-service-card__link">
                   Explore service
                   <ArrowUpRight aria-hidden="true" size={15} />
-                </Link>
+                </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

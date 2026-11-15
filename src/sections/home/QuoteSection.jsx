@@ -7,7 +7,9 @@ import {
   MessageSquareText,
 } from 'lucide-react';
 import SectionHeading from '../../components/common/SectionHeading.jsx';
+import WhatsAppLink from '../../components/common/WhatsAppLink.jsx';
 import { quoteEnquiryOptions } from '../../data/homeData.js';
+import { getWhatsAppUrl, WHATSAPP_MESSAGES } from '../../utils/whatsapp.js';
 import './QuoteSection.css';
 
 const address =
@@ -17,11 +19,42 @@ const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURICompo
 )}`;
 
 export default function QuoteSection() {
-  const [previewShown, setPreviewShown] = useState(false);
+  const [draftUrl, setDraftUrl] = useState('');
+  const [statusMessage, setStatusMessage] = useState('');
 
   function handleSubmit(event) {
     event.preventDefault();
-    setPreviewShown(true);
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get('entity_name') ?? '').trim();
+    const phone = String(formData.get('contact_number') ?? '').trim();
+    const email = String(formData.get('contact_email') ?? '').trim();
+    const category = String(formData.get('production_domain') ?? '').trim();
+    const notes = String(formData.get('project_notes') ?? '').trim();
+    const message = [
+      WHATSAPP_MESSAGES.contact,
+      '',
+      `Name / organization: ${name}`,
+      phone && `Preferred contact number: ${phone}`,
+      email && `Email: ${email}`,
+      `Production category: ${category}`,
+      notes && `Project details: ${notes}`,
+    ]
+      .filter(Boolean)
+      .join('\n');
+    const url = getWhatsAppUrl(message);
+
+    if (!url) {
+      setDraftUrl('');
+      setStatusMessage(
+        'WhatsApp is unavailable because its business number is not configured for this build.',
+      );
+      return;
+    }
+
+    setDraftUrl(url);
+    setStatusMessage(
+      'Your draft is ready. Continue to WhatsApp, choose the official company chat, and review it before sending.',
+    );
   }
 
   return (
@@ -37,7 +70,7 @@ export default function QuoteSection() {
           id="home-quote-section-title"
           description="Share a few project details to prepare an enquiry. Online submission is not connected yet."
           eyebrow="Start a conversation"
-          title="Request a Quote or Plan a Plant Visit"
+          title="Request a Project Quote"
         />
 
         <div className="home-quote__layout">
@@ -60,7 +93,7 @@ export default function QuoteSection() {
             <a
               className="home-quote__map-link"
               href={mapUrl}
-              rel="noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
             >
               Open location in Maps
@@ -70,8 +103,8 @@ export default function QuoteSection() {
             <div className="home-quote__contact-pending">
               <MessageSquareText aria-hidden="true" size={17} />
               <p>
-                This form is a preview only. Contact us on WhatsApp to request a
-                quotation.
+                Confirm visit arrangements before travelling. Project enquiries
+                can be prepared as a WhatsApp draft below.
               </p>
             </div>
 
@@ -80,7 +113,14 @@ export default function QuoteSection() {
             </p>
           </aside>
 
-          <form className="home-quote__form" onSubmit={handleSubmit}>
+          <form
+            className="home-quote__form"
+            onChange={() => {
+              setDraftUrl('');
+              setStatusMessage('');
+            }}
+            onSubmit={handleSubmit}
+          >
             <div className="home-quote__form-heading">
               <div>
                 <p>Project enquiry</p>
@@ -148,19 +188,44 @@ export default function QuoteSection() {
             </div>
 
             <p className="home-quote__privacy-note">
-              Preview only. This form does not transmit or store your information.
+              Nothing is submitted or stored by this website. If you continue,
+              these details will be included in a WhatsApp draft for you to review.
             </p>
             <button className="button button--secondary home-quote__submit" type="submit">
-              Preview enquiry request
+              Prepare WhatsApp enquiry
               <ArrowUpRight aria-hidden="true" size={16} />
             </button>
             <p aria-live="polite" className="home-quote__status" role="status">
-              {previewShown
-                ? 'This is a form preview only. Nothing has been sent or saved.'
-                : ''}
+              {statusMessage}
             </p>
+            {draftUrl && (
+              <a
+                className="button button--outline home-quote__open-whatsapp"
+                href={draftUrl}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Continue to WhatsApp
+                <ArrowUpRight aria-hidden="true" size={16} />
+              </a>
+            )}
           </form>
         </div>
+
+        <aside className="home-quote__cta">
+          <div>
+            <p className="section-heading__eyebrow">Project timeline</p>
+            <h3>Working to a tight deadline?</h3>
+            <p>
+              Share your required date and project location. Availability and
+              turnaround are confirmed for each enquiry.
+            </p>
+          </div>
+          <WhatsAppLink
+            label="Discuss your project"
+            message={WHATSAPP_MESSAGES.contact}
+          />
+        </aside>
       </div>
     </section>
   );

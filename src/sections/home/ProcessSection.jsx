@@ -1,5 +1,6 @@
 import SectionHeading from '../../components/common/SectionHeading.jsx';
 import { workingProcess } from '../../data/homeData.js';
+import { HomeIllustration } from './HomeArtwork.jsx';
 import './ProcessSection.css';
 
 export default function ProcessSection() {
@@ -14,26 +15,29 @@ export default function ProcessSection() {
           align="center"
           className="home-process__heading"
           id="home-process-title"
-          description="A clear sequence for discussing scope, proofs, timing, and handover."
+          description="A suggested enquiry flow. Confirm the actual operational steps with the business before publication."
           eyebrow="From brief to delivery"
           title="Our 6-Step Working Process"
         />
-        <p className="home-process__note">
-          Suggested enquiry flow · confirm operational steps before publication
-        </p>
-
         <ol className="home-process__grid">
-          {workingProcess.map(({ number, title, description, icon: Icon }) => (
+          {workingProcess.map(({ number, title, description, illustration, speech }) => (
             <li className="home-process-card" key={number}>
-              <div className="home-process-card__top">
-                <span>{number}</span>
-                <Icon aria-hidden="true" size={17} />
+              <div className="home-process-card__artwork">
+                <HomeIllustration
+                  className="home-process-card__illustration"
+                  name={illustration}
+                />
+                <span className="home-process-card__speech">{speech}</span>
               </div>
+              <span className="home-process-card__number">{number}</span>
               <h3>{title}</h3>
               <p>{description}</p>
             </li>
           ))}
         </ol>
+        <p className="home-process__note">
+          Suggested sequence only · confirm operational steps before relying on them
+        </p>
       </div>
     </section>
   );
